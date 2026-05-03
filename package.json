@@ -1,13 +1,13 @@
 {
   "name": "api-loja",
   "version": "1.0.0",
-  "description": "",
+  "description": "Site para loja de livros online FastLibrary",
   "main": "index.js",
   "scripts": {
     "test": "ts-node-dev src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jonas Gomes de Lima Neto",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
