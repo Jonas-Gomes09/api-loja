@@ -150,7 +150,7 @@ h1:hover {
     margin-top: 1rem;
     backdrop-filter: blur(10px);
     max-width: 95vw;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .produtofoto {
@@ -161,11 +161,12 @@ h1:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 8rem;
 }
 
 .produtodescricao {
     margin-left: .5rem;
-    width: calc(70vw - 7rem);
+    width: calc(70vw - 8rem);
     max-width: 95vw;
 }
 
@@ -179,11 +180,11 @@ h1:hover {
 
 .produtop {
     color: rgba(128, 166, 219,.6);
-    width: 70rem;
     font-size: 1.2rem;
-    text-align: justify;
     margin-left: 1rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: -1rem;
 }
 
 .importantbutton {
