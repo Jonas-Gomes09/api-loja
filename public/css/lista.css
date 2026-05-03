@@ -139,6 +139,7 @@ h1:hover {
 
 .produto {
     width: 70rem;
+    min-height: fit-content;
     height: 25vh;
     align-self: center;
     border-radius: 1.5rem;
