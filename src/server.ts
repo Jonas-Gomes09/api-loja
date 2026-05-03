@@ -53,11 +53,11 @@ const dadosLoja = "lista.json"
 async function readLivros(): Promise<Livro[]> {
     try {
         const texto = await readFile(dadosLoja, "utf-8");
-        console.log(`Dados carregados com sucesso!`)
+        console.log(`DADOS: Dados carregados com sucesso!`)
         return JSON.parse(texto) as Livro[]; // Array
     }
     catch {
-        console.log(`O arquivo "${dadosLoja}" não foi encontrado na pasta do projeto, adicione um livro em http://${HOST}:${PORT}/lista/adicionar para criar o arquivo ou o importe`)
+        console.log(`DADOS: O arquivo "${dadosLoja}" não foi encontrado na pasta do projeto, adicione um livro em http://${HOST}:${PORT}/lista/adicionar para criar o arquivo ou o importe`)
         return [];
   }
 }
@@ -94,7 +94,7 @@ app.get("/lista", async (req, res) => {
     }
     catch {
         res.status(500).json({sucesso: false, status: "Erro interno do servidor ao tentar executar a rota GET"})
-        console.log("(/lista) Falha ao acessar banco de dados")
+        console.log("GET (/lista): Falha ao acessar banco de dados")
     }
 })
 
@@ -105,7 +105,7 @@ app.get("/lista/json", async (req, res) => {
         res.json(loja)
     } catch {
         res.status(500).json({sucesso: false, status: "Erro interno do servidor ao tentar executar a rota GET"})
-        console.log("(/lista/json) Falha ao acessar banco de dados")
+        console.log("GET (/lista/json): Falha ao acessar banco de dados")
     }
 })
 
@@ -143,7 +143,7 @@ app.post("/lista/adicionar", async (req, res) => {
         res.redirect("/sucesso")
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar a rota POST"})
-        console.log("(/lista/adicionar) Falha ao adicionar produto")
+        console.log("POST (/lista/adicionar): Falha ao adicionar produto")
     }
 })
 
@@ -157,7 +157,7 @@ app.get("/sucesso", async (req, res) => {
     res.render("sucesso", {livro:ultimoAdd})
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar rota GET"})
-        console.log("(/sucesso) Falha ao carregar página de sucesso")
+        console.log("GET (/sucesso): Falha ao carregar página de sucesso")
     }
 })
 
@@ -172,9 +172,11 @@ app.get("/lista/:id", async (req, res) => {
     else {res.status(404).json({sucesso: false, mensagem: `Não há nenhum produto com o ID ${ID}`})}
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar rota GET"})
-        console.log(`(/lista/:id) Falha ao tentar acessar o livro com ID ${ID}`)
+        console.log(`GET (/lista/:id): Falha ao tentar acessar o livro com ID ${ID}`)
     }
 })
+
+
 
 // ------------------------------------------------------------------- //
 //                             Execução                                //
@@ -182,5 +184,9 @@ app.get("/lista/:id", async (req, res) => {
 
 // Listener
 app.listen(PORT, HOST, () => {
-    console.log(`Conectado na rede local! Acesse neste dispositivo em: http://${HOST}:${PORT} | Para acessar em outros dispositivos escreva o IP local IPv4 da máquina em que o servidor está sendo executado ao invés de '0.0.0.0'`)
+    console.log(`-------------------------------------------------------------------`)
+    console.log(`                     Servidor Iniciando...                         `)
+    console.log(`-------------------------------------------------------------------`)
+    console.log(`STATUS: Conectado na rede local! Acesse neste dispositivo em: http://${HOST}:${PORT} | Para acessar em outros dispositivos escreva o IP local IPv4 da máquina em que o servidor está sendo executado ao invés de '0.0.0.0'`)
+    console.log(`   -------------------------------------------------------------   `)
 })
