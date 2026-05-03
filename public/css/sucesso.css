@@ -37,6 +37,7 @@ header {
     width: 100vw;
     backdrop-filter: blur(8px);
     top: 0px;
+    z-index: 2
 }
 
 .headermenu {
@@ -136,7 +137,7 @@ h1:hover {
 }
 
 .areaformulario {
-    width: 30vw;
+    width: 30rem;
     align-self: center;
     border-radius: 1.5rem;
     background-color: rgba(33, 46, 85,.6);

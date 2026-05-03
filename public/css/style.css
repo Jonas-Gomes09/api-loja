@@ -37,6 +37,7 @@ header {
     width: 100vw;
     backdrop-filter: blur(8px);
     top: 0px;
+    z-index: 2
 }
 
 .headermenu {

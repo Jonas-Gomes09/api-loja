@@ -37,6 +37,7 @@ header {
     width: 100vw;
     backdrop-filter: blur(8px);
     top: 0px;
+    z-index: 2
 }
 
 .headermenu {
@@ -200,6 +201,7 @@ h1:hover {
     transition: .2s ease;
     align-self: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .importantbutton:hover {

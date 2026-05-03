@@ -37,6 +37,7 @@ header {
     width: 100vw;
     backdrop-filter: blur(8px);
     top: 0px;
+    z-index: 2
 }
 
 .headermenu {
@@ -123,7 +124,7 @@ h1:hover {
 }
 
 .areaformulario {
-    width: 30vw;
+    width: 30rem;
     align-self: center;
     border-radius: 1.5rem;
     background-color: rgba(33, 46, 85,.6);
@@ -142,7 +143,7 @@ form {
 
 label {
     color: #80A6DB;
-    width: 70vw;
+    width: 70rem;
     font-size: 1.1rem;
     text-align: center;
     align-self: center;

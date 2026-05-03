@@ -151,5 +151,5 @@ app.get("/lista/:id", async (req, res) => {
 
 // Listener
 app.listen(PORT, HOST, () => {
-    console.log(`Connected! Hosted at: http://localhost:${PORT}`)
+    console.log(`Connected! Hosted at: http://${HOST}:${PORT}`)
 })
