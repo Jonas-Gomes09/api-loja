@@ -22,15 +22,29 @@
                 <label for="titulo">Titulo:</label>
                 <input class="textinput" type="text" id="titulo" name="titulo" placeholder="Título do livro" required>
 
+                <label for="autor">Autor:</label>
+                <input class="textinput" type="text" id="autor" name="autor" placeholder="Autor do livro" required>
+
                 <label for="ano">Ano:</label>
                 <input class="numberinput" type="number" id="ano" name="ano" placeholder="Ano de lançamento" required>
 
                 <select class="selectinput" id="genero" name="genero" required>
-                    <option value="Romance">Romance</option>
-                    <option value="Ação">Ação</option>
-                    <option value="Comédia">Comédia</option>
-                    <option value="Terror">Terror</option>
-                    <option value="Ficção Científica">Ficção Científica</option>
+                    <optgroup label="Literatura e Ficção">
+                        <option value="Ficção Histórica">Ficção Histórica</option>
+                        <option value="Policial">Policial</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Fantasia Épica">Fantasia Épica</option>
+                        <option value="Horror Gótico">Horror Gótico</option>
+                        <option value="Realismo Mágico">Realismo Mágico</option>
+                    </optgroup>
+
+                    <optgroup label="Conhecimento e Realidade">
+                        <option value="Autobiografia e Memórias">Autobiografia e Memórias</option>
+                        <option value="Ciências Políticas">Ciências Políticas</option>
+                        <option value="Psicologia e Saúde Mental">Psicologia e Saúde Mental</option>
+                        <option value="Tecnologia e Inovação">Tecnologia e Inovação</option>
+                        <option value="Espiritualidade e Religião">Espiritualidade e Religião</option>
+                    </optgroup>
                 </select>
 
                 <label for="disponivel">Disponível?</label>

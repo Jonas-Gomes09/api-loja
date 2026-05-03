@@ -40,9 +40,10 @@
             </div>
             <div class="produtodescricao">
                 <h1 class="produtoh1"><%= lista[i].titulo %></h1>
-                <p class="produtop"><%= lista[i].ano %></p>
-                <p class="produtop"><%= lista[i].genero %></p>
-                <p class="produtop"><%= lista[i].disponivel %></p>
+                <p class="produtop">Autor: <%= lista[i].autor %></p>
+                <p class="produtop">Publicado em: <%= lista[i].ano %></p>
+                <p class="produtop">Gênero: <%= lista[i].genero %></p>
+                <p class="produtop"><% if (lista[i].disponivel === true) { %> Disponível <% } else { %> Indisponível <% } %></p>
             </div>
         </div>
         <% } %>

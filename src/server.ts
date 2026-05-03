@@ -41,6 +41,7 @@ app.set("views", "src/views")
 interface Livro {
     id: Number
     titulo: String
+    autor: String
     ano: Number
     genero: String
     disponivel?: Boolean
@@ -117,14 +118,14 @@ app.get("/lista/adicionar", async (req, res) => {
 // POST Adição do produto
 app.post("/lista/adicionar", async (req, res) => {
 
-    const {titulo, ano, genero} = req.body
+    const {titulo, autor, ano, genero} = req.body
     const disponibilidade = req.body.checkboxDisponivel === 'on' // Confirmação na checkbox
 
     try {
         const loja = await readLivros()
         const nextID = loja.length > 0 ? Number(loja.length) + 1 : 1;
 
-        const novoLivro = {id: nextID, titulo, ano, genero, disponivel: disponibilidade}
+        const novoLivro = {id: nextID, titulo, autor, ano, genero, disponivel: disponibilidade}
 
         // Validação
         const erros: String[] = []
