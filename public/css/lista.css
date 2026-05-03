@@ -24,6 +24,8 @@ body {
     max-width: 100vw;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 70%, transparent 100%);
     overflow: hidden;
+    min-height: 700px;
+    max-height: 1080px;
 
     z-index: -1;
 }
@@ -135,7 +137,7 @@ h1:hover {
 }
 
 .produto {
-    width: 70vw;
+    width: 70rem;
     height: 25vh;
     align-self: center;
     border-radius: 1.5rem;
@@ -145,22 +147,23 @@ h1:hover {
     padding: .5rem;
     margin-top: 1rem;
     backdrop-filter: blur(10px);
+    max-width: 95vw;
+    overflow: hidden;
 }
 
 .produtofoto {
     border-radius: .9rem;
     background-color: rgb(33, 46, 85);
     border: 2px solid rgb(51, 67, 110);
-    width: 8vw;
+    width: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .produtodescricao {
-    border: 2px solid rgb(51, 67, 110);
     margin-left: .5rem;
-    width: calc(70vw - 2rem - 8vw - 12vw);
+    width: calc(70vw - 6rem);
 }
 
 .produtoh1 {
@@ -171,16 +174,9 @@ h1:hover {
     text-align: left;
 }
 
-.produtobotoes {
-    border-radius: .9rem;
-    border: 2px solid rgb(51, 67, 110);
-    width: 12vw;
-    margin-left: .5rem;
-}
-
 .produtop {
     color: rgba(128, 166, 219,.6);
-    width: 70vw;
+    width: 70rem;
     font-size: 1.2rem;
     text-align: justify;
     margin-left: 1rem;
