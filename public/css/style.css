@@ -38,7 +38,8 @@ header {
     width: 100vw;
     backdrop-filter: blur(8px);
     top: 0px;
-    z-index: 2
+    z-index: 2;
+    border-bottom: 2px solid rgba(255,255,255,.1);
 }
 
 .headermenu {
@@ -70,6 +71,7 @@ main {
     padding-top: 12rem;
     display: flex;
     flex-direction: column;
+    padding-bottom: 3rem;
 }
 
 .texto {
@@ -201,19 +203,48 @@ p::first-letter {
 footer {
     position: fixed;
     display: flex;
-    bottom: 0.2rem;
+    bottom: 0rem;
     color: rgba(128, 166, 219,0.6);
     width: 100vw;
+    height: 4rem;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to top, rgb(8, 20, 43) 10%, transparent);
 }
 
 .footerp {
+    position: fixed;
     color: rgba(128, 166, 219,0.4);
     font-size: 1rem;
     text-align: justify;
     width: fit-content;
+    bottom: .5rem
 }
 .footerp::first-letter {
     margin: 0;
+}
+.footerp:hover {
+    color: rgba(128, 166, 219,0.7);
+}
+
+h3 {
+    color: #cde2ff;
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+li {
+    color: rgba(128, 166, 219,0.8);
+    margin-top: .5rem;
+    transition: .2s ease;
+}
+
+li:hover {
+    color: #cde2ff;
+    margin-top: .5rem;
+}
+
+li::-moz-list-bullet {
+    color: #cde2ff;
 }

@@ -62,9 +62,13 @@ readLivros()
 
 
 // Página Inicial
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     res.render("index")
+})
 
+// Saiba mais
+app.get("/sobre", async (req, res) => {
+    res.render("saibamais")
 })
 
 // Loja
