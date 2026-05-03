@@ -10,6 +10,7 @@ import { textSpanOverlap } from "typescript"
 // Configuração
 const app = express()
 const PORT = 6767
+const HOST = '0.0.0.0'
 
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../public')));
@@ -50,7 +51,7 @@ async function readLivros(): Promise<Livro[]> {
 }
 
 // Escrever o arquivo lista.json
-async function salvarLivros(lista: Livro[]) {
+async function writeLivros(lista: Livro[]) {
     await writeFile(dadosLoja, JSON.stringify(lista, null, 2));
 }
 
@@ -117,6 +118,8 @@ app.post("/lista/adicionar", async (req, res) => {
         if (erros.length > 0) {
             res.status(400).json({sucesso: false, erros})
         } else loja.push(novoLivro)
+
+        await writeLivros(loja)
         res.redirect("/sucesso")
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor"})
@@ -147,6 +150,6 @@ app.get("/lista/:id", async (req, res) => {
 })
 
 // Listener
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
     console.log(`Connected! Hosted at: http://localhost:${PORT}`)
 })
