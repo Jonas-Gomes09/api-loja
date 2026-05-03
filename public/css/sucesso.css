@@ -1,0 +1,277 @@
+/*"Kantumruy Pro"*/
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+/*"Kalnia"*/
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kantumruy Pro";
+    text-rendering: geometricPrecision;
+    max-width: 100vw;
+}
+
+body {
+    background-image: linear-gradient(135deg, rgb(25, 39, 80), rgb(8, 20, 43));
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.background {
+    position: fixed;
+    max-width: 100vw;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 70%, transparent 100%);
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100vw;
+    backdrop-filter: blur(8px);
+    top: 0px;
+}
+
+.headermenu {
+    height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.headermenubutton {
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    margin-right: .5rem;
+    color: rgba(255,255,255,.6);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.headermenubutton:hover {
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    margin-right: .5rem;
+    color: rgba(255,255,255,1);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.pesquisar {
+    margin: .25rem;
+    background: rgba(255,255,255,.0001);
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 2rem;
+    padding-left: .7rem;
+    color: white;
+    transition: .2s ease;
+}
+.pesquisar::placeholder {
+    color: rgba(255,255,255,.4);
+}
+
+.pesquisar:focus {
+    margin: .25rem;
+    background: rgba(255,255,255,.4);
+    border-radius: 2rem;
+    padding-left: .7rem;
+    color: white;
+    outline: none;
+    border:none
+}
+
+main {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.texto {
+    width: calc(100vw - rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.welcome {
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: "Kalnia";
+    color: #80A6DB;
+    font-size: 4rem;
+    text-align: center;
+    transition: 4s ease;
+}
+
+h1:hover {
+    text-shadow: 0px 0px 20px rgba(128, 166, 219,0.6);
+    color: #b1cbf0
+}
+
+.h1sucesso {
+    font-family: "Kalnia";
+    color: #80A6DB;
+    font-size: 2.5rem;
+    text-align: center;
+    transition: 4s ease;
+}
+
+.h1sucesso:hover {
+    text-shadow: none;
+    color: #80A6DB;
+}
+
+.areaformulario {
+    width: 30vw;
+    align-self: center;
+    border-radius: 1.5rem;
+    background-color: rgba(33, 46, 85,.6);
+    border: 2px solid rgb(51, 67, 110);
+    display: flex;
+    padding: 2rem;
+    margin-top: 1rem;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #80A6DB;
+    width: 70vw;
+    font-size: 1.1rem;
+    text-align: center;
+    align-self: center;
+    margin-bottom: .2rem;
+}
+
+.textinput {
+    height: 3rem;
+    background: transparent;
+    border: 2px solid rgb(51, 67, 110);
+    border-radius: 1.5rem;
+    color: #80A6DB;
+    font-size: 1.2rem;
+    padding-left: .6rem;
+    transition: .2s ease;
+    margin-bottom: 2rem;
+}
+.textinput:focus {
+    background: rgba(0,0,0,.4);
+    outline: none;
+    border: 2px solid #80A6DB;
+    box-shadow: 0px 0px 10px 2px rgba(128, 166, 219,.2);
+}
+
+.numberinput {
+    height: 3rem;
+    background: transparent;
+    border: 2px solid rgb(51, 67, 110);
+    border-radius: 1.5rem;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    color: rgb(128, 166, 219);
+    font-size: 1.2rem;
+    padding-left: .6rem
+}
+
+.numberinput:focus {
+    background: rgba(0,0,0,.4);
+    outline: none;
+    border: 2px solid #80A6DB;
+    box-shadow: 0px 0px 10px 2px rgba(128, 166, 219,.2);
+}
+
+.numberinput::-webkit-inner-spin-button, .numberinput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.selectinput {
+    width: 100%;
+    align-self: center;
+    height: 3rem;
+    background-color: rgb(51, 67, 110);
+    border: none;
+    border-radius: .6rem;
+    padding: .6rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #80A6DB;
+    transition: .2s ease;
+}
+
+.selectinput:hover {
+    background-color: rgb(51, 67, 110);
+    border: 2px solid rgba(128, 166, 219,.6);
+    scale: 101%
+}
+
+.selectinput option {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid rgba(128, 166, 219,.6);
+}
+
+
+.checkboxinput {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3rem;
+    width: 3rem;
+    background: transparent;
+    border: 2px solid rgb(51, 67, 110);
+    border-radius: .6rem;
+    align-self: center;
+    transition: .2s ease;
+    cursor: pointer;
+}
+.checkboxinput:hover {
+    background: rgba(0,0,0,.4);
+    box-shadow: 0px 0px 10px 2px rgba(128, 166, 219,.2);
+}
+.checkboxinput:checked {
+    height: 3rem;
+    background: linear-gradient(135deg, rgb(54, 198, 255), rgb(0, 140, 255));
+    border: 2px solid rgb(51, 67, 110);
+}
+.checkboxinput:checked:hover {
+    border: 2px solid rgb(192, 237, 255);
+}
+
+.submit {
+    height: 3rem;
+    border: none;
+    border-radius: .6rem;
+    background: linear-gradient(135deg, rgb(54, 198, 255), rgb(0, 140, 255));
+    background-size: cover;
+    color: rgb(8, 20, 43);
+    margin-top: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.submit:hover {
+    scale: 101%;
+    box-shadow: 0px 0px 10px 2px rgba(54, 198, 255,.6);
+    background: linear-gradient(135deg, rgb(192, 237, 255), rgb(156, 210, 255));
+}

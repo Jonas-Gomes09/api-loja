@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/adicionar.css" rel="stylesheet">
+</head>
+<body>
+    <img class="background" src="/images/backgroundimage.png">
+    <header>
+        <div class="headermenu">
+            <button class="headermenubutton" onclick="window.location.href='/'">INÍCIO</button>
+            <button class="headermenubutton" onclick="window.location.href='/lista'">LOJA</button>
+            <button class="headermenubutton" onclick="window.location.href='/lista/adicionar'">ADICIONAR PRODUTO</button>
+        </div>
+        <input class="pesquisar" type="text" placeholder="Pesquisar livro">
+    </header>
+    <main>
+        <h1>Adicionar Livro</h1>
+        <div class="areaformulario">
+            <form action="/lista/adicionar" method="post">
+                <label for="titulo">Titulo:</label>
+                <input class="textinput" type="text" id="titulo" name="titulo" placeholder="Título do livro" required>
+
+                <label for="ano">Ano:</label>
+                <input class="numberinput" type="number" id="ano" name="ano" placeholder="Ano de lançamento" required>
+
+                <select class="selectinput" id="genero" name="genero" required>
+                    <option value="Romance">Romance</option>
+                    <option value="Ação">Ação</option>
+                    <option value="Comédia">Comédia</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Ficção Científica">Ficção Científica</option>
+                </select>
+
+                <label for="disponivel">Disponível?</label>
+                <input class="checkboxinput" type="checkbox" id="checkboxDisponivel" name="checkboxDisponivel">
+
+                <button class="submit" type="submit">Adicionar livro</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
