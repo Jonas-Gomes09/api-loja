@@ -18,3 +18,6 @@ O código, a logo e a empresa do website foram criados por mim. A empresa no web
 ### Execução
 
 Para executar o servidor digite "npm test" ou "ts-node-dev src/server.ts" no terminal na pasta do servidor (api-loja)
+Siga as instruções no terminal para acessar o site. É para funcionar normalmente em qualquer navegador que suporte HTML 5. 
+
+Acessando pelo celular: dependendo do modelo pode ser que algumas partes do site fiquem cortadas, eu fiz pensando no meu celular (Galaxy A36).

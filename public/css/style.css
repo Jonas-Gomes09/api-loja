@@ -96,6 +96,7 @@ h1 {
     font-size: 4rem;
     text-align: center;
     transition: 4s ease;
+    max-width: 95vw;
 }
 
 .logoh1 {
@@ -232,12 +233,16 @@ h3 {
     font-size: 1.4rem;
     margin-top: 2.5rem;
     margin-bottom: .5rem;
+    max-width: 95vw;
+    text-align: center;
 }
 
 li {
     color: rgba(128, 166, 219,0.8);
     margin-top: .5rem;
     transition: .2s ease;
+    max-width: 80vw;
+    text-align: justify;
 }
 
 li:hover {
