@@ -135,7 +135,7 @@ export async function postLivro(req: Request, res: Response) {
         } else loja.push(novoLivro)
 
         await Models.writeLivros(loja)
-        res.redirect("/sucesso")
+        res.status(201).redirect("/sucesso")
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar a rota POST"})
         console.log("POST (/lista/adicionar): Falha ao adicionar produto")
@@ -158,6 +158,7 @@ export async function deleteLivro(req: Request, res:Response) {
 
             loja.splice(index, 1)
             await Models.writeLivros(loja)
+            res.json({sucesso: true, mensagem: "Livro excluido."})
     } catch {
         console.error(`DELETE (/loja/${ID}): Falha ao tentar excluir o livro com ID ${ID}`)
         return res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar a rota DELETE"})
