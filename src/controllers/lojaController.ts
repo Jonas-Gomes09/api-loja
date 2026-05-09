@@ -1,6 +1,6 @@
 import express, {Request, Response} from "express"
 import * as Models from "../models/lojaModels"
-import {novoLivro} from "../variables/index"
+import * as Index from "../variables/index"
 
 // ------------------------------------------------------------------- //
 //                               FUNÇÕES                               //
@@ -85,6 +85,38 @@ export async function paginaSucesso(req: Request, res: Response) {
     }
 }
 
+// GET ../views/sucessoupdate.ejs
+export async function sucessoUpdate(req: Request, res: Response) {
+    const ID = Number(req.params.id)
+    try {
+    const loja = await Models.readLivros()
+    const index = await loja.findIndex(a => a.id === ID)
+
+    res.render("sucessoupdate", {livro:loja[index]})
+    } catch {
+        res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar rota GET"})
+        console.log("GET (/sucesso): Falha ao carregar página de sucesso")
+    }
+}
+
+// GET ../views/update.ejs
+export async function paginaUpdate(req: Request, res: Response) {
+    const ID = Number(req.params.id)
+    try {
+    const loja = await Models.readLivros()
+    const index = await loja.find(a => a.id === ID)
+    
+    if (index === undefined) {
+        res.status(404).json({sucesso: false, erro: "Não existe livro com este ID."})
+        return;
+    }
+    res.render("update", {livro:index})
+    } catch {
+        res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar rota GET"})
+        console.log("GET (/loja/update): Falha ao carregar página de atualizar")
+    }
+}
+
 export async function produtoEspecifico(req: Request, res: Response) {
     const ID = Number(req.params.id)
     try {
@@ -109,10 +141,10 @@ export async function postLivro(req: Request, res: Response) {
     const disponibilidade = req.body.checkboxDisponivel === 'on' // Confirmação na checkbox
 
     try {
-        const loja: novoLivro[] = await Models.readLivros()
+        const loja: Index.novoLivro[] = await Models.readLivros()
         const nextID = loja.length > 0 ? loja.length + 1 : 1;
 
-        const novoLivro: novoLivro = { 
+        const novoLivro: Index.novoLivro = { 
             id: nextID, 
             titulo, 
             autor, 
@@ -146,6 +178,44 @@ export async function postLivro(req: Request, res: Response) {
 //                                 PUT                                 //
 // ------------------------------------------------------------------- //
 
+
+
+export async function putLivro(req: Request, res: Response) {
+    const ID = Number(req.params.id)
+    const { titulo, autor, ano, genero, disponivel } = req.body;
+    const loja = await Models.readLivros()
+try {
+        const loja: Index.Livro[] = await Models.readLivros()
+        const index = await loja.findIndex(a => a.id === ID)
+        const atual = loja[index]
+
+        if (!atual) return null;
+
+            if (index === -1) {
+            res.status(404).json({sucesso: false, erro: "Não existe livro com este ID."})
+            return;
+        }
+            const livroAtualizado: Index.Livro = { 
+                ...atual, // Mantém o que já existia
+                id: ID,   // Garante que o ID não mude
+                titulo: titulo ?? atual.titulo, 
+                autor: autor ?? atual.autor, 
+                ano: ano ?? atual.ano,
+                genero: genero ?? atual.genero, 
+                disponivel: disponivel !== undefined ? disponivel : atual.disponivel
+            }
+
+        loja[index] = livroAtualizado
+
+        await Models.writeLivros(loja)
+        res.redirect(`/sucessoupdate/${ID}`)
+    
+    } catch {
+        res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar a rota PUT"})
+        console.log(`PUT (/loja/update/${ID}): Falha ao adicionar produto`)
+    }
+}
+
 // ------------------------------------------------------------------- //
 //                               DELETE                                //
 // ------------------------------------------------------------------- //
@@ -154,7 +224,7 @@ export async function deleteLivro(req: Request, res:Response) {
     const ID = Number(req.params.id)
     try {
         const loja = await Models.readLivros()
-        const index = (ID - 1)
+        const index = loja.findIndex(a => a.id === ID)
 
             loja.splice(index, 1)
             await Models.writeLivros(loja)

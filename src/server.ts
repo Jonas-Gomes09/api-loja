@@ -7,6 +7,7 @@ import path from "path" // Acessar pasta ./public
 import {logger} from "./middlewares/logger" // Usar o middleware logger
 import {routes} from "./routes/lojaRoutes" // Acessar rotas
 
+
 import { PORT, HOST } from "./variables/index" // Endereço do servidor
 
 // ------------------------------------------------------------------- //
@@ -15,12 +16,17 @@ import { PORT, HOST } from "./variables/index" // Endereço do servidor
 
 const app = express() // Facilitar escrita do código
 
+const methodOverride = require('method-override');
+
 app.use(express.json()) // Permitir visualização e criação de arquivos JSON
 app.use(express.static(path.join(__dirname, '../public'))); // Aplicação do Path para acessar a pasta ./public
 app.use(express.urlencoded({ extended: true })); // Tradução de dados formatados em URL para o TypeScript.
 
 // Logger Middleware
 app.use(logger) // Aplicação do Logger
+
+// MethodOverride Middleware
+app.use(methodOverride('_method'));
 
 // EJS
 app.set("view engine", "ejs")

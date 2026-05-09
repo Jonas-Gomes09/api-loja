@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastLibrary > Adicionado</title>
+    <link href="/css/sucesso.css" rel="stylesheet">
+</head>
+<body>
+    <img class="background" src="/images/backgroundimage.png">
+    <header>
+        <div class="headermenu">
+            <button class="headermenubutton" onclick="window.location.href='/'">INÍCIO</button>
+            <button class="headermenubutton" onclick="window.location.href='/loja'">LOJA</button>
+            <button class="headermenubutton" onclick="window.location.href='/loja/adicionar'">ADICIONAR PRODUTO</button>
+        </div>
+    </header>
+    <main>
+        <h1>Adicionar Livro</h1>
+        <div class="areaformulario">
+            <h1 class="h1sucesso">"<%= livro.titulo %>" foi atualizado com sucesso!</h1>
+            <button class="submit" onclick="window.location.href='/loja'">Acessar loja</button>
+        </div>
+    </main>
+</body>
+</html>

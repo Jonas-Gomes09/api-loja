@@ -22,12 +22,17 @@ routes.get("/loja/json", Controller.lojaJson) // ./dados/lista.json
 
 routes.get("/sucesso", Controller.paginaSucesso)
 
-routes.get("/loja/:id", Controller.produtoEspecifico)
+routes.get("/sucessoupdate/:id", Controller.sucessoUpdate)
 
+routes.get("/loja/update/:id", Controller.paginaUpdate)
+
+routes.get("/loja/:id", Controller.produtoEspecifico)
 
 // POST
 routes.post("/loja/adicionar", Controller.postLivro) // POST executado via formulário em ./views/adicionar.ejs
 
+//PUT
+routes.put("/loja/update/:id", Controller.putLivro)
 
 //DELETE
 routes.delete("/loja/:id", Controller.deleteLivro)

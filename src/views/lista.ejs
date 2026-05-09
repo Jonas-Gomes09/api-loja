@@ -61,8 +61,8 @@ async function deletar(id) {
             </div>
             <div class="produtoopcoes">
                 <button onclick="window.location.href='/loja/<%= i + 1 %>'" class="acessarproduto">ACESSAR PÁGINA</button>
-                <button onclick="window.location.href='/loja/<%= i + 1 %>'" class="atualizarproduto">ATUALIZAR</button>
-                <button type="button" onclick="deletar('<%= i + 1 %>')" class="excluirproduto">EXCLUIR</button>
+                <button onclick="window.location.href='/loja/update/<%= lista[i].id %>'" class="atualizarproduto">ATUALIZAR</button>
+                <button type="button" onclick="deletar('<%= lista[i].id %>')" class="excluirproduto">EXCLUIR</button>
             </div>
         </div>
         <% } %>
