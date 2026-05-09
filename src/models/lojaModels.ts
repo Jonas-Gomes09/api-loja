@@ -1,6 +1,7 @@
-import {writeFile, readFile} from "fs/promises"
-import { Livro, PORT, HOST, novoLivro } from "../variables/index"
+import {writeFile, readFile, mkdir} from "fs/promises"
+import { Livro, PORT, HOST } from "../variables/index"
 
+const diretorioDados = "./dados"
 const dadosLoja = "./dados/lista.json"
 
 export async function readLivros(): Promise<Livro[]> {
@@ -16,5 +17,6 @@ export async function readLivros(): Promise<Livro[]> {
 }
 
 export async function writeLivros(lista: Livro[]) {
+    await mkdir(diretorioDados)
     await writeFile(dadosLoja, JSON.stringify(lista, null, 2));
 }
