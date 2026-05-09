@@ -45,15 +45,14 @@ npx ts-node-dev src/server.ts
 **Acessar no dispositivo em que o código está sendo executado**  
 Você pode acessar digitando ou "http://0.0.0.0:3000" ou "http://localhost:3000" ou "http://{IPv4 do dispositivo executando o servidor}:3000" no navegador enquanto o código está sendo executado
 
-**Acessar em outro dispositivo na rede local (LAN)<sup>2</sup>**  
-Certifique-se de que tanto o dispositivo executando o servidor quanto o dispositivo que irá acessá-lo estão conectados e na mesma internet (ou conectados via uma VPN). Para acessar você digita "http://{IPv4 do dispositivo executando o servidor}:3000" no navegador enquanto o código está sendo executado, também pode ser acessado em navegadores para celular<sup>1</sup>
+**Acessar em outro dispositivo na rede local (LAN)<sup>1</sup>**  
+Certifique-se de que tanto o dispositivo executando o servidor quanto o dispositivo que irá acessá-lo estão conectados e na mesma internet (ou conectados via uma VPN). Para acessar você digita "http://{IPv4 do dispositivo executando o servidor}:3000" no navegador enquanto o código está sendo executado, também pode ser acessado em navegadores para celular<sup>2</sup>
 
-1. Dependendo do modelo pode ser que algumas partes do site fiquem cortadas, o CSS foi adaptado para o Samsung Galaxy A36 e não foi testado em outros modelos.
-
-2. Caso você não queira que o site possa ser acessado por outros dispositivos na rede altere a linha contendo "export const HOST = '0.0.0.0'" de ./src/variables/index.ts para:
+1. Caso você não queira que o site possa ser acessado por outros dispositivos na rede altere a linha contendo "export const HOST = '0.0.0.0'" de ./src/variables/index.ts para:
 ```
 export const HOST = 'localhost'
 ```
+2. Dependendo do modelo pode ser que algumas partes do site fiquem cortadas, o CSS foi adaptado para o Samsung Galaxy A36 e não foi testado em outros modelos.
 
 
 ##
