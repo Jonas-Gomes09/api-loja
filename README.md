@@ -1,6 +1,6 @@
 # API-Loja
 
-Esta API é feita somente para fim de testes e não é um produto real, há inclusive funções ainda não implementadas.
+Esta API é feita somente para fim de testes e não é um produto real, há inclusive funções ainda não implementadas (como PUT e DELETE).
 
 O código, a logo e a empresa do website foram criados por mim. A empresa no website é totalmente fictícia.
 
