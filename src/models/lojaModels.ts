@@ -17,6 +17,7 @@ export async function readLivros(): Promise<Livro[]> {
 }
 
 export async function writeLivros(lista: Livro[]) {
-    await mkdir(diretorioDados)
+    await mkdir(diretorioDados, {recursive: true})
     await writeFile(dadosLoja, JSON.stringify(lista, null, 2));
+    console.log(`DADOS: Dados escritos com sucesso!`)
 }

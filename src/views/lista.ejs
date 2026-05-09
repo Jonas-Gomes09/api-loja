@@ -7,6 +7,20 @@
     <link href="/css/lista.css" rel="stylesheet">
 </head>
 <body>
+    <script>
+async function deletar(id) {
+        console.log("Tentando deletar o ID:", id); // Teste se o clique funciona
+        
+        if (!confirm("Deseja mesmo excluir?")) return;
+
+        try {
+            const response = await fetch(`/loja/${id}`, { method: 'DELETE' });
+        } catch {
+            console.error("Erro na requisição");
+        }
+        window.location.href="/loja"
+    }
+    </script>
     <img class="background" src="/images/backgroundimage.png">
     <header>
         <div class="headermenu">
@@ -44,6 +58,11 @@
                 <p class="produtop">Publicado em: <%= lista[i].ano %></p>
                 <p class="produtop">Gênero: <%= lista[i].genero %></p>
                 <p class="produtop"><% if (lista[i].disponivel === true) { %> Disponível <% } else { %> Indisponível <% } %></p>
+            </div>
+            <div class="produtoopcoes">
+                <button onclick="window.location.href='/loja/<%= i + 1 %>'" class="acessarproduto">ACESSAR PÁGINA</button>
+                <button onclick="window.location.href='/loja/<%= i + 1 %>'" class="atualizarproduto">ATUALIZAR</button>
+                <button type="button" onclick="deletar('<%= i + 1 %>')" class="excluirproduto">EXCLUIR</button>
             </div>
         </div>
         <% } %>

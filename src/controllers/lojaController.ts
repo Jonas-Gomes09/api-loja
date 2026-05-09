@@ -94,7 +94,7 @@ export async function produtoEspecifico(req: Request, res: Response) {
     else {res.status(404).json({sucesso: false, mensagem: `Não há nenhum produto com o ID ${ID}`})}
     } catch {
         res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar rota GET"})
-        console.log(`GET (/lista/:id): Falha ao tentar acessar o livro com ID ${ID}`)
+        console.log(`GET (/lista/${ID}): Falha ao tentar acessar o livro com ID ${ID}`)
     }
 }
 
@@ -149,3 +149,17 @@ export async function postLivro(req: Request, res: Response) {
 // ------------------------------------------------------------------- //
 //                               DELETE                                //
 // ------------------------------------------------------------------- //
+
+export async function deleteLivro(req: Request, res:Response) {
+    const ID = Number(req.params.id)
+    try {
+        const loja = await Models.readLivros()
+        const index = (ID - 1)
+
+            loja.splice(index, 1)
+            await Models.writeLivros(loja)
+    } catch {
+        console.error(`DELETE (/loja/${ID}): Falha ao tentar excluir o livro com ID ${ID}`)
+        return res.status(500).json({sucesso: false, mensagem: "Erro interno do servidor ao tentar executar a rota DELETE"})
+    }
+}

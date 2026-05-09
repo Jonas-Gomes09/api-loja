@@ -27,3 +27,7 @@ routes.get("/loja/:id", Controller.produtoEspecifico)
 
 // POST
 routes.post("/loja/adicionar", Controller.postLivro) // POST executado via formulário em ./views/adicionar.ejs
+
+
+//DELETE
+routes.delete("/loja/:id", Controller.deleteLivro)
